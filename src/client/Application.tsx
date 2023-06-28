@@ -35,22 +35,22 @@ export const Application: FC = () => {
     return <div className={bem()}>
         <Helmet titleTemplate="%s — Example store" />
         <nav className="navbar navbar-expand-sm navbar-light bg-light">
-            <div className="container">
+            <div data-testid='navbar-brand-link' className="container">
                 <Link className={bem('Brand', ['navbar-brand'])} to="/">Example store</Link>
-                <button className={bem('Toggler', ['navbar-toggler'])} aria-label="Toggle navigation" onClick={toggle}>
+                <button data-testid='navbar-toggler-id' className={bem('Toggler', ['navbar-toggler'])} aria-label="Toggle navigation" onClick={toggle}>
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className={bem('Menu', [navbarClass])}>
-                    <div className="navbar-nav">
+                    <div className="navbar-nav" data-testid='navbar-nav'>
                         <NavLink className="nav-link" activeClassName="active" to="/catalog" onClick={hide}>Catalog</NavLink>
                         <NavLink className="nav-link" activeClassName="active" to="/delivery" onClick={hide}>Delivery</NavLink>
                         <NavLink className="nav-link" activeClassName="active" to="/contacts" onClick={hide}>Contacts</NavLink>
-                        <NavLink className="nav-link" activeClassName="active" to="/cart" onClick={hide}>{cartLabel}</NavLink>
+                        <NavLink data-testid='header-cart-link' className="nav-link" activeClassName="active" to="/cart" onClick={hide}>{cartLabel}</NavLink>
                     </div>
                 </div>
             </div>
         </nav>
-        <div className="container pt-4">
+        <div data-testid='page-container' className="container pt-4">
             <Switch>
                 <Route path="/" exact component={Home} />
                 <Route path="/catalog" exact component={Catalog} />
